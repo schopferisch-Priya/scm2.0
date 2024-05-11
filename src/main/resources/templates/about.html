@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>This is documentation page.</h1>
+    <hr />
+
+    <!--using fragment-->
+    <!-- <div class="host-tag" th:insert ="~{base :: parent}"> -->
+    <div class="host-tag" th:replace="${isLogin} ? ~{base :: parent(~{:: section})} : ~{base :: test(~{:: #not_logged_in})}">
+        
+        <section>
+            <h1>User is logged in</h1>
+            <h2>Dynamic content</h2>
+            <p>This is section tag under documentation page.</p>
+            <button>Click on Dynamic content</button>
+        </section>
+
+        <section id="not_logged_in">
+            <h1>User is not logged in</h1>
+            <p>This is dynamic content</p>
+
+        </section>
+    </div>
+</body>
+
+</html>
